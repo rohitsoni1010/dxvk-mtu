@@ -183,7 +183,11 @@ namespace dxvk {
       pRect != nullptr ? &box : nullptr,
       Flags);
 
-    if (FAILED(hr)) return hr;
+    // if (FAILED(hr)) return hr;
+    if (FAILED(hr)) {
+      Logger::err(str::format("D3D9Surface::LockRect failed: hr=0x", std::hex, hr, std::dec));
+      return hr;
+    }
 
     pLockedRect->pBits = lockedBox.pBits;
     pLockedRect->Pitch = lockedBox.RowPitch;
