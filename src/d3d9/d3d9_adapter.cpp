@@ -269,7 +269,7 @@ namespace dxvk {
     }
 
     Logger::info(str::format("CheckDeviceMultiSampleType TL OK: fmt=", (UINT)dst.FormatColor,
-            " samples=", sampleCount, " qualityLevels=", pQualityLevels));
+            " samples=", sampleCount, " qualityLevels=", pQualityLevels, " settingQuality=", 32 - bit::lzcnt(availableFlags)));
 
     return D3D_OK;
   }
